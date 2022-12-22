@@ -4,10 +4,8 @@ def findTheCharFrequency(text):
         lines = f.readlines()
         ver = [float(i) for i in list(lines[1].split())]
         result = (dict(zip(lines[0], ver)))
-        global word
         global final_result_code
         final_result_code = {}
-        word = lines[2].strip()
     return result
 
 
@@ -51,11 +49,12 @@ class HuffmanTree(object):
         self.Hu_generate(self.root, 0)
 
 if __name__=='__main__':
-    text = r'code_hafmann_input.txt'
+    text = 'huffman.txt'
     result = findTheCharFrequency(text)
     tree = HuffmanTree(result)
     tree.get_code()
     code_message = ""
+    word = input("Введите слово\n")
     for i in word:
         code_message += final_result_code[i]
 
